@@ -1,0 +1,22 @@
+<mat-card class="card">
+  <mat-card-header>
+    <!-- Header -->
+    <h2 class="header-name">{{pokemon.name | camelCase}}</h2>
+  </mat-card-header>
+  <img mat-card-image [src]="pokemonDetails.sprites.front_default" alt="{{pokemon.name}} picture">
+  <mat-card-content>
+    <!-- content -->
+    <p>
+        <b>{{pokemon.name | titlecase}}</b> has the following abilities:
+    </p>
+    <ol>
+        <li *ngFor="let abilityArr of pokemonDetails.abilities">
+            {{abilityArr.ability.name | titlecase}}
+        </li>
+    </ol>
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- actions -->
+    <button mat-raised-button color="primary" routerLink="/Pokemon/{{pokemon.name}}">View More</button>
+  </mat-card-actions>
+</mat-card>
